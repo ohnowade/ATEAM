@@ -2,8 +2,10 @@ package application;
 
 
 
+import java.awt.image.TileObserver;
 import java.util.Collection;
 import javax.swing.border.TitledBorder;
+import javax.swing.text.DefaultEditorKit.InsertBreakAction;
 // import java.awt.TextField;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -32,6 +34,7 @@ public class Start extends Application {
          setTitle(title);
         Label topicLabel = new Label("Topic: ");
         Label questionLabel = new Label("Number of questions: ");
+        setLable(topicLabel, questionLabel);
        
         Button starButton = new Button("Start Quiz");
         Button backButton = new Button("Back to Menu");
@@ -41,39 +44,41 @@ public class Start extends Application {
                         "Option 3", "Option 4", "Option 5");
         @SuppressWarnings({"rawtypes", "unchecked"})
         ComboBox comboBox = new ComboBox(options);
-        comboBox.setPromptText("-Select-");
-        comboBox.setVisibleRowCount(3);
+        setComBox(comboBox);
 
-        TextField numberQ = new TextField();
-
-        BorderPane root = new BorderPane();
-        VBox centerVBox = new VBox();
-        centerVBox.setSpacing(50);
+        TextField numberQ = new TextField();    
+        
         HBox centerBox = new HBox();
         centerBox.setAlignment(Pos.CENTER);
-
         centerBox.getChildren().addAll(topicLabel, comboBox);
 
         HBox rightBox = new HBox();
         rightBox.setAlignment(Pos.CENTER);
         rightBox.getChildren().addAll(questionLabel, numberQ);
-        centerVBox.getChildren().addAll(centerBox, rightBox);
+        
+        VBox centerV = new VBox();
+        centerV.getChildren().addAll(centerBox, rightBox);
+        setCenterVbox(centerV);
+
 
         VBox bottomV = new VBox();
         bottomV.getChildren().addAll(starButton, backButton);
         setBottomVbox(bottomV);
-        root.setTop(title);
-        root.setCenter(centerVBox);
-        root.setRight(bottomV);
-        root.setStyle("-fx-background-color: #000000;");
         
+        BorderPane root = new BorderPane();
+        root.setTop(title);
+        root.setCenter(centerV);
+        root.setBottom(bottomV);
+        
+        root.setStyle("-fx-background-color: #000000;");
+        BorderPane.setAlignment(centerBox, Pos.TOP_CENTER);
+        BorderPane.setAlignment(title, Pos.BOTTOM_CENTER);
 
-        Scene scene = new Scene(root, 1200, 800); // set the scene
+        Scene scene = new Scene(root, 800, 600); // set the scene
 
 
         scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Jiayu's First JavaFX program"); // set the titile of the scene
         primaryStage.show();
 
     }
@@ -86,16 +91,36 @@ public class Start extends Application {
      backButton.setStyle("-fx-background-color: #FFA31A;");
  }
  public void setBottomVbox(VBox bottomVBox) {
-     bottomVBox.setAlignment(Pos.CENTER_LEFT);
-     bottomVBox.setSpacing(150);
-//    bottomVBox.setMargin
+     bottomVBox.setAlignment(Pos.BOTTOM_CENTER);
+     bottomVBox.setSpacing(80);
+     bottomVBox.setPadding(new Insets(20, 70, 70, 70));
+
      
+ }
+ public void setCenterVbox(VBox centerVBox) {
+     centerVBox.setAlignment(Pos.CENTER);
+     centerVBox.setSpacing(40);
+     centerVBox.setPadding(new Insets(10, 40, 40, 40));
  }
  
  public void setTitle(Label title) {
+      
      title.setFont(new Font(100));
      title.setTextFill(Color.WHITE);
  }
+ public void setLable(Label qLabel, Label nLabel) {
+     qLabel.setFont(new Font(35));
+     qLabel.setTextFill(Color.WHITE);
+     nLabel.setFont(new Font(35));
+     nLabel.setTextFill(Color.WHITE);;
+ }
+ 
+ public void setComBox(ComboBox<String> comboBox) {
+     comboBox.setPromptText("-Select-");
+     comboBox.setVisibleRowCount(3);
+
+ }
+ 
     public static void main(String[] args) {
         launch(args);
     }
