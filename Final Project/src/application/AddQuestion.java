@@ -68,6 +68,12 @@ public class AddQuestion extends Application{
 			HBox buttons = new HBox(back, add);
 			buttons.setSpacing(10);
 			buttons.setAlignment(Pos.BOTTOM_RIGHT);
+			add.setOnMouseClicked(e -> {
+				Stage menuStage = new Stage();
+				Main menu = new Main();
+				menu.start(menuStage);
+				menuStage.show();
+			});
 			
 			// Add all control elements
 			VBox vbox = new VBox();

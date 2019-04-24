@@ -60,18 +60,17 @@ public class Quiz extends Application{
 		}
 		// After the user clicks "confirm", the answer would be checked and shown, the button would lead the
 		// user to the next question
-		if (confirm.getText().equals("Confirm")) {
 			confirm.setOnMouseClicked( e -> {
+				if (confirm.getText().equals("Confirm")) {
 				confirm.setText("Next");
 				answer.setVisible(true);
+				} else {
+					Stage menuStage = new Stage();
+					Quiz quiz = new Quiz();
+					quiz.start(menuStage);
+					menuStage.show();
+				}
 			});
-		} else {
-			confirm.setOnMouseClicked( e -> {
-				Stage mainStage = new Stage();
-				Main main = new Main();
-				main.start(mainStage);
-			});
-		}
 
 		// set the layout
 		HBox hbox = new HBox(answer, confirm);
