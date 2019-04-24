@@ -24,7 +24,31 @@ public class Main extends Application {
 		try {
 			// Create all buttons
 			Button start = new Button("Start");
+			start.setOnMouseClicked(e -> {
+				Stage startStage = new Stage();
+				Start startPage = new Start();
+				try {
+					startPage.start(startStage);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				startStage.show();
+				primaryStage.close();
+			});
+			
 			Button setUp = new Button("Set Up");
+			setUp.setOnMouseClicked(e -> {
+      	Stage setStage = new Stage();
+      	SetBank setBank = new SetBank();
+      	try {
+					setBank.start(setStage);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+      	setStage.show();
+      	primaryStage.close();
+      });
+			
 			Button exit = new Button("Exit");
 
 			// The image for the head of this scene

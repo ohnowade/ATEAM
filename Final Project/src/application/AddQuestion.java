@@ -64,15 +64,31 @@ public class AddQuestion extends Application{
 			
 			// two buttons offering choices for the user to go back or to confirm to add
 			Button back = new Button("Back");
+			back.setOnMouseClicked(e -> {
+      	Stage setStage = new Stage();
+      	SetBank setBank = new SetBank();
+      	try {
+					setBank.start(setStage);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+      	setStage.show();
+      	primaryStage.close();
+      });
 			Button add = new Button("Add");
 			HBox buttons = new HBox(back, add);
 			buttons.setSpacing(10);
 			buttons.setAlignment(Pos.BOTTOM_RIGHT);
 			add.setOnMouseClicked(e -> {
-				Stage menuStage = new Stage();
-				Main menu = new Main();
-				menu.start(menuStage);
-				menuStage.show();
+				Stage addStage = new Stage();
+      	AddQuestion addPage = new AddQuestion();
+      	try {
+					addPage.start(addStage);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+      	addStage.show();
+      	primaryStage.close();
 			});
 			
 			// Add all control elements

@@ -69,6 +69,7 @@ public class Quiz extends Application{
 					Quiz quiz = new Quiz();
 					quiz.start(menuStage);
 					menuStage.show();
+					primaryStage.close();
 				}
 			});
 

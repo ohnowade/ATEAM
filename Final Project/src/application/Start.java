@@ -35,8 +35,22 @@ public class Start extends Application {
             Label questionLabel = new Label("Number of questions: ");
 
 
-            Button starButton = new Button("Start Quiz");
+            Button startButton = new Button("Start Quiz");
+            startButton.setOnMouseClicked(e -> {
+            	Stage quizStage = new Stage();
+            	Quiz quiz = new Quiz();
+            	quiz.start(quizStage);
+            	quizStage.show();
+            	primaryStage.close();
+            });
             Button backButton = new Button("Back to Menu");
+            backButton.setOnMouseClicked(e -> {
+            	Stage mainStage = new Stage();
+            	Main main = new Main();
+            	main.start(mainStage);
+            	mainStage.show();
+            	primaryStage.close();
+            });
             Button selectButton = new Button("Insert");
             ObservableList<String> selected =
                             FXCollections.observableArrayList("-------Selected Topics-------");
@@ -66,7 +80,7 @@ public class Start extends Application {
 
 
             VBox bottomV = new VBox();
-            bottomV.getChildren().addAll(starButton, backButton);
+            bottomV.getChildren().addAll(startButton, backButton);
             setBottomVbox(bottomV);
 
             BorderPane root = new BorderPane();

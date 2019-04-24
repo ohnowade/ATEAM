@@ -28,8 +28,26 @@ public class SetBank extends Application {
             Label warning = new Label("Load From File :");  // create required button
 
             Button confirmB = new Button("Confirm");
-            Button addQ = new Button("Add new Question");
+            Button addQ = new Button("Add a New Question");
+            addQ.setOnMouseClicked(e -> {
+            	Stage addStage = new Stage();
+            	AddQuestion addPage = new AddQuestion();
+            	try {
+								addPage.start(addStage);
+							} catch (Exception e1) {
+								e1.printStackTrace();
+							}
+            	addStage.show();
+            	primaryStage.close();
+            });
             Button back = new Button("Back to Menu");
+            back.setOnMouseClicked(e -> {
+            	Stage mainStage = new Stage();
+            	Main main = new Main();
+            	main.start(mainStage);
+            	mainStage.show();
+            	primaryStage.close();
+            });
 
             TextField pathField = new TextField(); // create textfield for file path entering
 
