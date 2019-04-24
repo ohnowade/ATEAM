@@ -1,6 +1,6 @@
 package application;
 
-// import java.awt.TextField;
+
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,13 +11,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
+
 
 
 public class Start extends Application {
@@ -36,18 +37,24 @@ public class Start extends Application {
 
             Button starButton = new Button("Start Quiz");
             Button backButton = new Button("Back to Menu");
+            Button selectButton = new Button("Insert");
+            ObservableList<String> selected =
+                            FXCollections.observableArrayList("-------Selected Topics-------");
+            ListView<String> selectedList = new ListView<String>(selected);
+
 
             ObservableList<String> options = FXCollections.observableArrayList("Option 1",
                             "Option 2", "Option 3", "Option 4", "Option 5");
             @SuppressWarnings({"rawtypes", "unchecked"})
-            ComboBox comboBox = new ComboBox(options);
-            setComBox(comboBox);
+            ComboBox<String> comboBox = new ComboBox(options);
+            setComBox(comboBox, selectButton, selectedList);
 
             TextField numberQ = new TextField();
 
             HBox centerBox = new HBox();
             centerBox.setAlignment(Pos.CENTER);
-            centerBox.getChildren().addAll(topicLabel, comboBox);
+            centerBox.getChildren().addAll(topicLabel, comboBox, selectButton);
+            centerBox.setSpacing(20);
 
             HBox rightBox = new HBox();
             rightBox.setAlignment(Pos.CENTER);
@@ -67,13 +74,16 @@ public class Start extends Application {
 
             root.setCenter(centerV);
             root.setBottom(bottomV);
+            root.setRight(selectedList);
 
             root.setStyle("-fx-background-color: #000000;");
             BorderPane.setMargin(titleView, new Insets(50, 0, 0, 0));
             BorderPane.setAlignment(centerBox, Pos.TOP_CENTER);
             BorderPane.setAlignment(titleView, Pos.BOTTOM_CENTER);
+            BorderPane.setMargin(selectedList, new Insets(0, 30, 0, 0));
+            BorderPane.setMargin(bottomV, new Insets(0,0,60,0));
 
-            Scene scene = new Scene(root, 800, 600); // set the scene
+            Scene scene = new Scene(root, 1200, 800); // set the scene
 
 
             scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -88,7 +98,7 @@ public class Start extends Application {
     public void setBottomVbox(VBox bottomVBox) {
         bottomVBox.setAlignment(Pos.BOTTOM_CENTER);
         bottomVBox.setSpacing(80);
-        bottomVBox.setPadding(new Insets(0, 70, 70, 70));
+        bottomVBox.setPadding(new Insets(0, 70, 0, 70));
 
 
     }
@@ -101,11 +111,23 @@ public class Start extends Application {
 
 
 
-    public void setComBox(@SuppressWarnings("rawtypes") ComboBox comboBox) {
+    public void setComBox(ComboBox<String> comboBox, Button Insert, ListView<String> selctedL) {
         comboBox.setPromptText("-Select-");
         comboBox.setVisibleRowCount(7);
 
+        Insert.setOnAction((e) -> {
+            String temp = comboBox.getSelectionModel().getSelectedItem();
+            if (temp != null) {
+                selctedL.getItems().add(temp);
+            }
+
+
+        });
+        Insert.fire();
+
     }
+
+
 
     public static void main(String[] args) {
         launch(args);
