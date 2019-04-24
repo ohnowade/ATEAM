@@ -34,5 +34,21 @@
 	-fx-background-color: #FFA31A;
 }
 
+.scroll-pane > .viewport {
+   -fx-background-color: #000000;
+}
+
+.scroll-bar:vertical, .scroll-bar:horizontal {
+	-fx-background-color: #FFA31A;
+}
+
+.scroll-bar:vertical .thumb, .scroll-bar:horizontal .thumb {
+	-fx-background-color: #FFFFFF;
+}
+
+
+
+
+
 
 

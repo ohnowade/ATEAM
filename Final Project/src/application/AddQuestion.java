@@ -9,6 +9,8 @@ import javafx.scene.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollBar;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -21,10 +23,6 @@ public class AddQuestion extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		try {
-			// The scroll bar to read the complete scene
-			ScrollBar bar = new ScrollBar();
-			bar.setOrientation(Orientation.VERTICAL);
-			
 			// The image for the head of this scene
 			Image image = new Image("addQuestion.png");
 			ImageView head = new ImageView(image);
@@ -39,8 +37,9 @@ public class AddQuestion extends Application{
 			
 			// prompt for question
 			Label question = new Label("Question: ");
-			TextField questionField = new TextField();
-			questionField.setPrefWidth(200);
+			TextArea questionField = new TextArea();
+			questionField.setPrefWidth(400);
+			questionField.setPrefHeight(70);
 			HBox questionBox = new HBox(question, questionField);
 			
 			// prompt for the address of image
@@ -61,7 +60,7 @@ public class AddQuestion extends Application{
 			Button addChoices = new Button("Add Choices");
 			otherField.setPrefWidth(200);
 			HBox otherBox = new HBox(otherChoices, otherField, addChoices);
-			HBox.setMargin(addChoices, new Insets(0, 0, 0, 235));
+			HBox.setMargin(addChoices, new Insets(0, 0, 0, 215));
 			
 			// two buttons offering choices for the user to go back or to confirm to add
 			Button back = new Button("Back");
@@ -90,8 +89,8 @@ public class AddQuestion extends Application{
 			
 			
 			BorderPane root = new BorderPane();
-			root.setCenter(vbox);
-			root.setRight(bar);
+			ScrollPane scrollpane = new ScrollPane(vbox);
+			root.setCenter(scrollpane);
 			
 			Scene scene = new Scene(root,800,600);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

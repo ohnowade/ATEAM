@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -90,7 +91,8 @@ public class Quiz extends Application{
 		vbox.setAlignment(Pos.BASELINE_LEFT);
 
 		BorderPane root = new BorderPane();
-		root.setCenter(vbox);
+		ScrollPane scrollPane = new ScrollPane(vbox);
+		root.setCenter(scrollPane);
 
 		Scene scene = new Scene(root,1200,800);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
