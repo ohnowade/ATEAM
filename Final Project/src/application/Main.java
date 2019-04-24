@@ -37,7 +37,6 @@ public class Main extends Application {
 			vbox.setAlignment(Pos.BASELINE_CENTER);
 			vbox.getChildren().addAll(head, start, setUp, exit);
 			VBox.setMargin(head, new Insets(20, 0, 0, 0));
-			//vbox.setStyle("-fx-background-color: #000000;");
 			BorderPane root = new BorderPane();
 			root.setCenter(vbox);
 			

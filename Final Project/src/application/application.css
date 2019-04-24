@@ -15,6 +15,22 @@
 	-fx-min-width: 200px;
 }
 
-.root{
+.root {
 	-fx-background-color: #000000;
 }
+
+.label {
+	-fx-text-fill: #FFFFFF;
+	-fx-font: 26px "Serif";
+}
+
+.radio-button {
+	-fx-text-fill: #FFFFFF;
+	-fx-font: 26px "Serif";
+	-fx-mark-color: #58585A;
+}
+
+.radio-button > .radio {
+	-fx-background-color: #FFA31A;
+}
+
