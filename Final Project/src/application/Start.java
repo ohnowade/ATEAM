@@ -36,7 +36,6 @@ try {
 
         Button starButton = new Button("Start Quiz");
         Button backButton = new Button("Back to Menu");
-        SetButton(starButton, backButton);
 
         ObservableList<String> options = FXCollections.observableArrayList("Option 1", "Option 2",
                         "Option 3", "Option 4", "Option 5");
@@ -84,14 +83,6 @@ try {
     }
     }
 
-    public void SetButton(Button starButton, Button backButton) {
-        starButton.setMinSize(200, 50);
-        backButton.setMinSize(200, 50);
-        starButton.setFont(new Font(26));
-        backButton.setFont(new Font(26));
-        starButton.setStyle("-fx-background-color: #FFA31A;");
-        backButton.setStyle("-fx-background-color: #FFA31A;");
-    }
 
     public void setBottomVbox(VBox bottomVBox) {
         bottomVBox.setAlignment(Pos.BOTTOM_CENTER);
