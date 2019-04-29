@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Created-By: Chenlyu Zhao, Congkai Tan, Dongyu Ou, Jiayu Li
+Main-Class: application.Main
+
+
+

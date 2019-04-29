@@ -1,7 +1,7 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 .button {
 	-fx-background-color: #FFA31A;
-	-fx-font: 26px "Serif";
+	-fx-font: 26px "SansSerif";
 	-fx-text-fill: #000000;
 	-fx-min-height: 50px;
 	-fx-min-width: 200px;
@@ -9,7 +9,7 @@
 
 .button:hover {
 	-fx-background-color: linear-gradient(#FFA31A 80%, white 100%);
-	-fx-font: 26px "Serif";
+	-fx-font: 26px "SansSerif";
 	-fx-text-fill: #FFFFFF;
 	-fx-min-height: 50px;
 	-fx-min-width: 200px;
@@ -21,12 +21,12 @@
 
 .label {
 	-fx-text-fill: #FFFFFF;
-	-fx-font: 26px "Serif";
+	-fx-font: 26px "SansSerif";
 }
 
 .radio-button {
 	-fx-text-fill: #FFFFFF;
-	-fx-font: 26px "Serif";
+	-fx-font: 26px "SansSerif";
 	-fx-mark-color: #58585A;
 }
 

@@ -12,12 +12,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
+/**
+ * This class represents the result of the quiz taken
+ */
 public class Result extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// The image for the head of this scene
-		Image image = new Image("result.png");
+		Image image = new Image("headResult.png");
 		ImageView head = new ImageView(image);
 		head.setFitWidth(700);
 		head.setPreserveRatio(true);
@@ -41,9 +44,8 @@ public class Result extends Application {
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
 		primaryStage.setScene(scene);
-		primaryStage.setTitle("Quiz");
+		primaryStage.setTitle("Quiz Result");
 		primaryStage.show();
-		
 	}
 	
 	private VBox getLabelScore(int num_correct, int num_answer, int percentage) {
@@ -57,8 +59,4 @@ public class Result extends Application {
 		result.setSpacing(10);
 		return result;
 	}
-	public static void main(String[] args) {
-		launch(args);
-	}
-
 }

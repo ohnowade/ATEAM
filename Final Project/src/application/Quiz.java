@@ -17,6 +17,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.util.*;
 
+/**
+ * This class represents a single question in the quiz
+ */
 public class Quiz extends Application{
 
 	@Override
@@ -100,9 +103,4 @@ public class Quiz extends Application{
 		primaryStage.setTitle("Quiz");
 		primaryStage.show();
 	}
-
-	public static void main(String[] args) {
-		launch(args);
-	}
-
 }
